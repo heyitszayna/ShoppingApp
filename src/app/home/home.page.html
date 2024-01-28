@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar class="color" align="center">
+    <ion-title style="font-size:30px" style="font-family:consolas" color="light">
+      Welcome to Insta Tech!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="color3">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> <b> Items Available </b> </ion-card-title>
+      <ion-card-subtitle> Select your desired item </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="laptop" src="https://assets.dragonmart.ae//pictures/0453400_samsung-galaxy-book-s-intel-i5-laptop-mercury-grey-133in-8-gb.jpeg?width=510" />
+          </ion-thumbnail>
+          <ion-label> Laptop </ion-label>
+          <ion-label align="end"> Code: 0412</ion-label>
+        </ion-item>
+  
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="smart phone" src="https://images.samsung.com/is/image/samsung/p6pim/ae/2302/gallery/ae-galaxy-s23-s916-sm-s916blibmea-thumb-534837730?$264_264_PNG$" />
+          </ion-thumbnail>
+          <ion-label> Smart Phone </ion-label>
+          <ion-label align="end"> Code: 0413</ion-label>
+        </ion-item>
+  
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="tablet" src="https://i.expansys.net/img/b/372616/samsung-galaxy-tab-a8-10-5-tablet-sm-x200.jpg" />
+          </ion-thumbnail>
+          <ion-label> Tablet </ion-label>
+          <ion-label align="end"> Code: 0414</ion-label>
+        </ion-item>
+  
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <img alt="smart watch" src="https://www.worten.pt/i/bb8110fcbf99865c94c905f6b8d21f2b5376ff71.jpg" />
+          </ion-thumbnail>
+          <ion-label> Smart Watch </ion-label>
+          <ion-label align="end"> Code: 0415</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title align="center"> <b> Local Storage </b> </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label> Item Code </ion-label>
+          <ion-input [(ngModel)]="anItem && anItem.value1"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> Quantity </ion-label>
+          <ion-input [(ngModel)]="anItem && anItem.value2"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="storeItemL()" expand="block" class="color1"> Store an Item </ion-button>
+      <ion-button (click)="addToListL()" expand="block" class="color1"> Add an Item to List </ion-button>
+      <ion-button (click)="getItemL()" expand="block" class="color1"> Get the Latest Item </ion-button>
+      <ion-button (click)="getItemsL()" expand="block"  class="color1"> Get List of Stored Items </ion-button>
+      <ion-button (click)="clearAllL()" expand="block" class="color1"> Clear All </ion-button>
+      <ion-list>
+        <ion-item *ngFor="let item of list; index as i" >
+          Item Code: {{item.value1}} <br> Quantity: {{item.value2}} 
+          <ion-button color="danger" slot="end" (click)="deleteItemL(i)" expand="block"> x </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title align="center"> <b> Remote Storage </b> </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label> Item Code </ion-label>
+          <ion-input [(ngModel)]="aUnit && aUnit.val1"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> Quantity </ion-label>
+          <ion-input [(ngModel)]="aUnit && aUnit.val2"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="storeItemR('myKey')" expand="block" class="color2"> Store an Item </ion-button>
+      <ion-button (click)="addItemToListR()" expand="block" class="color2"> Add an Item to List </ion-button>
+      <ion-button (click)="getItemR('myKey')" expand="block" class="color2"> Get the Latest Item </ion-button>
+      <ion-button (click)="getItemsR('Units')" expand="block"  class="color2"> Get List of Stored Items </ion-button>
+      <ion-button (click)="clearAllItemsR()" expand="block" class="color2"> Clear All </ion-button>
+      <ion-list>
+        <ion-item *ngFor="let unit of file">
+          Item Code: {{unit.val1}}, <br> Quantity: {{unit.val2}}
+          <ion-button slot="end" color="danger" (click)="removeItemFromListR(unit)"> x </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer" align="center" color="light">
+    <ion-title>
+      Zayna (1084503)
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
